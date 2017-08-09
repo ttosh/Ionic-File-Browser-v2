@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      MX File Browser
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  {{ errorMessage }}
+
+  <br />
+
+  <ion-list *ngIf="isListView">
+    <button ion-item *ngFor="let dirEntry of currentEntries" (click)="getDirectoryContents(dirEntry)">
+      <i *ngIf="dirEntry.isDirectory" class="icon ion-folder"></i>
+      <i *ngIf="dirEntry.isFile" class="icon ion-document"></i>
+      <ion-label>{{ dirEntry.FolderName }}</ion-label>
+    </button>
+  </ion-list>
+
+</ion-content>
